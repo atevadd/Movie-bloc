@@ -27,7 +27,7 @@ main {
   grid-template-columns: 8% 92%;
 }
 .page-content {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding-top: 25px;
 }
 </style>
