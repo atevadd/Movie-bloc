@@ -39,7 +39,10 @@ export default {
 <style scoped>
 header {
   padding: 15px 20px 20px;
+  position: sticky;
+  top: 0;
 }
+
 nav {
   position: relative;
   /* width: 5%; */

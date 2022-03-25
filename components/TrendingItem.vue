@@ -17,6 +17,10 @@
       </p>
       <h1 class="movie-title">Beyond Earth</h1>
     </div>
+
+    <button type="button" class="bookmark-btn">
+      <i class="ri-bookmark-line"></i>
+    </button>
   </div>
 </template>
 
@@ -42,20 +46,20 @@ export default {
   /* background: rgba(0, 0, 0, 0.4) ; */
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1));
   z-index: 1;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .trending-item > img {
   display: block;
   position: relative;
   width: 380px;
-  height: 200px;
-  border-radius: 10px;
+  height: 180px;
+  border-radius: 8px;
   z-index: 0;
 }
 
 .trending-item-content {
   position: absolute;
-  bottom: 30px;
+  bottom: 25px;
   left: 20px;
 }
 span {
@@ -79,5 +83,29 @@ span {
   margin-top: 5px;
   z-index: 2;
   position: relative;
+}
+
+.bookmark-btn {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+}
+.bookmark-btn:active {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bookmark-btn i {
+  color: #f8fcfe;
 }
 </style>
