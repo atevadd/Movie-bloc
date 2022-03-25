@@ -47,11 +47,18 @@ export default {
 span {
   vertical-align: middle;
   margin-right: 5px;
-  color: #f8fcfe;
+  color: #f8fcfe91;
   font-size: 0.8rem;
   font-weight: 300;
   z-index: 2;
   position: relative;
+}
+.movie-title {
+  color: #f8fcfe;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  /* margin-top: 5px; */
 }
 .bookmark-btn {
   position: absolute;

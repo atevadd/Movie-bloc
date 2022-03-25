@@ -22,7 +22,7 @@
 
       <div class="user-icon">
         <img
-          src="https://images.pexels.com/photos/11293709/pexels-photo-11293709.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
+          src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt="User icon"
         />
       </div>
@@ -92,6 +92,7 @@ nav .user-icon img {
   width: 28px;
   height: 28px;
   border-radius: 50%;
+  border: 2px solid #fff;
 }
 
 @media screen and (max-width: 450px) {

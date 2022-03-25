@@ -65,7 +65,7 @@ export default {
 span {
   vertical-align: middle;
   margin-right: 5px;
-  color: #f8fcfe;
+  color: #f8fcfe91;
   font-size: 0.8rem;
   font-weight: 300;
   z-index: 2;
