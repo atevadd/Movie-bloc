@@ -77,7 +77,47 @@ main {
 }
 
 /* Mobile breakpoint */
-@media screen and (max-width: 450px) and (max-width: 900px) {
+@media screen and (max-width: 450px) {
+  main {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 100%));
+    align-items: baseline;
+  }
+  .page-content {
+    width: 100%;
+    /* margin-left: 20px; */
+  }
+  .trending > header {
+    padding-left: 20px;
+  }
+  .trending-container {
+    padding-left: 20px;
+    width: 100%;
+  }
+  .recommended {
+    width: 90%;
+    margin: 20px auto;
+  }
+  .recommended-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 15px;
+    padding-right: 0;
+  }
+  .recommended > header {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #f8fcfe;
+    margin: 10px 0 25px;
+  }
+}
+
+/* Tablet breakpoint */
+@media screen and (min-width: 451px) and (max-width: 900px) {
   main {
     width: 100%;
     overflow-x: hidden;
