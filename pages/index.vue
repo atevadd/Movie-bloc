@@ -14,7 +14,7 @@
       <section class="recommended">
         <header>Recommended for you</header>
         <div class="recommended-container">
-          <RecommendedItem v-for="i in 10" :key="i" />
+          <RecommendedItem v-for="i in 30" :key="i" />
         </div>
       </section>
     </section>
@@ -59,12 +59,13 @@ main {
 
 .recommended {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 .recommended-container {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px 25px;
+  gap: 30px 30px;
   padding-right: 25px;
 }
 
@@ -73,5 +74,36 @@ main {
   font-weight: 300;
   color: #f8fcfe;
   margin: 5px 0 15px;
+}
+
+/* Mobile breakpoint */
+@media screen and (max-width: 450px) and (max-width: 900px) {
+  main {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 100%));
+    align-items: flex-start;
+  }
+  .page-content {
+    width: 100%;
+    /* margin-left: 20px; */
+  }
+  .trending > header {
+    margin-left: 20px;
+  }
+  .trending-container {
+    margin-left: 20px;
+  }
+  .recommended {
+    width: 90%;
+    margin: 20px auto;
+  }
+  .recommended-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding-right: 0;
+  }
 }
 </style>

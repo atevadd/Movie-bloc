@@ -35,6 +35,9 @@ export default {
   position: relative;
   width: max-content;
 }
+.trending-item:last-child {
+  margin-right: 30px;
+}
 .trending-item::after {
   content: "";
   position: absolute;
@@ -107,5 +110,12 @@ span {
 
 .bookmark-btn i {
   color: #f8fcfe;
+}
+
+@media screen and (max-width: 450px) {
+  .trending-item > img {
+    width: 280px;
+    height: 160px;
+  }
 }
 </style>

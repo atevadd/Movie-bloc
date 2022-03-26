@@ -42,4 +42,11 @@ export default {
   font-size: 1.1rem;
   color: #fff;
 }
+
+@media screen and (max-width: 450px) {
+  .searchbar {
+    margin-left: 20px;
+    width: 100%;
+  }
+}
 </style>

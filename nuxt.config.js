@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "movie-bloc",
+    title: "movie-bloc - The best entertainment app",
     htmlAttrs: {
       lang: "en",
     },
@@ -49,4 +49,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  loading: {
+    color: "white",
+    height: "5px",
+  },
 };

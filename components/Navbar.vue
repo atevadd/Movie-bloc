@@ -10,13 +10,13 @@
           <nuxt-link to="/"><i class="ri-layout-grid-fill"></i></nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/"><i class="ri-film-fill"></i></nuxt-link>
+          <nuxt-link to="#"><i class="ri-film-fill"></i></nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/"><i class="ri-tv-fill"></i></nuxt-link>
+          <nuxt-link to="#"><i class="ri-tv-fill"></i></nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/"><i class="ri-bookmark-fill"></i></nuxt-link>
+          <nuxt-link to="#"><i class="ri-bookmark-fill"></i></nuxt-link>
         </li>
       </ul>
 
@@ -41,6 +41,7 @@ header {
   padding: 15px 20px 20px;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 nav {
@@ -80,7 +81,7 @@ nav ul li a:hover {
   color: #f8fcfe;
 }
 
-nav ul li a.active {
+nav ul li a.nuxt-link-exact-active {
   color: #f8fcfe;
 }
 

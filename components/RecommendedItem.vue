@@ -2,7 +2,7 @@
   <div class="recommended-item">
     <div class="movie-image">
       <img
-        src="https://images.pexels.com/photos/1383834/pexels-photo-1383834.jpeg?auto=compress&cs=tinysrgb&w=260&h=750&dpr=1"
+        src="https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         alt="recommended movie image"
       />
     </div>
@@ -43,12 +43,13 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 8px;
+  aspect-ratio: 6 / 4;
 }
 span {
   vertical-align: middle;
   margin-right: 5px;
   color: #f8fcfe91;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 300;
   z-index: 2;
   position: relative;
@@ -57,7 +58,7 @@ span {
   color: #f8fcfe;
   font-weight: 500;
   font-size: 0.9rem;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   /* margin-top: 5px; */
 }
 .bookmark-btn {
