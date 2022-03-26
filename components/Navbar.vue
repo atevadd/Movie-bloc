@@ -99,6 +99,8 @@ nav .user-icon img {
 @media screen and (max-width: 450px) {
   header {
     padding: 0;
+    position: sticky;
+    top: 0;
   }
 
   nav {

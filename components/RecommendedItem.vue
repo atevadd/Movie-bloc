@@ -43,7 +43,6 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  aspect-ratio: 6 / 4;
 }
 span {
   vertical-align: middle;
@@ -83,5 +82,11 @@ span {
 
 .bookmark-btn i {
   color: #f8fcfe;
+}
+
+@media screen and (max-width: 450px) {
+  .movie-image {
+    height: 160px;
+  }
 }
 </style>
