@@ -6,8 +6,11 @@
 
       <section class="trending">
         <header>Trending</header>
-        <div class="trending-container">
-          <TrendingItem v-for="i in 5" :key="i" />
+
+        <div v-if="$fetchState.pending">Fetching movies</div>
+        <div v-else-if="$fetchState.error">An error occured</div>
+        <div class="trending-container" v-else>
+          <TrendingItem v-for="i in 10" :key="i" :movie="trendingMovies[i]" />
         </div>
       </section>
 
@@ -22,8 +25,30 @@
 </template>
 
 <script>
+import apiKey from "~/assets/js/key";
+
 export default {
   name: "IndexPage",
+  data() {
+    return {
+      trendingMovies: [],
+    };
+  },
+  methods: {
+    getTrendingMovies() {
+      this.$axios
+        .get(`/trending/movie/week?api_key=${apiKey}`)
+        .then((res) => {
+          this.trendingMovies = res.data.results;
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
+  },
+  async fetch() {
+    await this.getTrendingMovies();
+  },
 };
 </script>
 
@@ -33,6 +58,9 @@ main {
   display: grid;
   grid-template-columns: 8% 92%;
   align-items: flex-start;
+}
+.output {
+  width: max-content;
 }
 .page-content {
   /* border: 1px solid red; */

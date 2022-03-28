@@ -1,21 +1,20 @@
 <template>
   <div class="trending-item">
     <img
-      src="https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      alt=""
+      :src="'http://image.tmdb.org/t/p/original' + movie.backdrop_path"
+      :alt="movie.title + 'poster image'"
     />
-    <!-- <img
-      src="https://images.pexels.com/photos/9754/mountains-clouds-forest-fog.jpg?auto=compress&cs=tinysrgb&w=360&h=300&dpr=1"
-      alt=""
-    /> -->
     <div class="trending-item-content">
       <p>
-        <span>2019</span><span class="dot">&middot;</span
-        ><span class="inline-flex"><i class="ri-film-fill"></i> Movie</span>
-        <span class="dot">&middot;</span>
-        <span>PG</span>
+        <span>{{ movie.release_date }}</span
+        ><span class="dot">&middot;</span
+        ><span class="inline-flex"
+          ><i class="ri-film-fill"></i> {{ movie.media_type }}</span
+        >
+        <span class="dot" v-if="movie.adult">&middot;</span>
+        <span v-if="movie.adult">PG</span>
       </p>
-      <h1 class="movie-title">Beyond Earth</h1>
+      <h1 class="movie-title">{{ movie.title }}</h1>
     </div>
 
     <button type="button" class="bookmark-btn">
@@ -27,6 +26,9 @@
 <script>
 export default {
   name: "TrendingItem",
+  props: {
+    movie: Object,
+  },
 };
 </script>
 
@@ -54,7 +56,7 @@ export default {
 .trending-item > img {
   display: block;
   position: relative;
-  width: 380px;
+  width: 350px;
   height: 180px;
   border-radius: 8px;
   z-index: 0;

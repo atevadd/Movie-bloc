@@ -144,4 +144,53 @@ nav .user-icon img {
     border-radius: 50%;
   }
 }
+
+@media screen and (min-width: 451px) and (max-width: 900px) {
+  header {
+    padding: 0;
+    position: sticky;
+    top: 0;
+  }
+
+  nav {
+    width: 100%;
+    height: 70px;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    border-radius: 0;
+    padding: 0 15px;
+  }
+  nav ul {
+    margin-top: 0;
+    list-style-type: none;
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+  }
+  nav ul li a {
+    font-size: 1.1rem;
+    color: #586791;
+  }
+
+  nav ul li a:hover {
+    color: #f8fcfe;
+  }
+
+  nav ul li a.active {
+    color: #f8fcfe;
+  }
+
+  nav .user-icon {
+    margin-top: 0;
+  }
+
+  nav .user-icon img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+  }
+}
 </style>
