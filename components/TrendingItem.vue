@@ -6,7 +6,7 @@
     />
     <div class="trending-item-content">
       <p>
-        <span>{{ movie.release_date }}</span
+        <span>{{ transformedDate }}</span
         ><span class="dot">&middot;</span
         ><span class="inline-flex"
           ><i class="ri-film-fill"></i> {{ movie.media_type }}</span
@@ -27,7 +27,34 @@
 export default {
   name: "TrendingItem",
   props: {
-    movie: Object,
+    movie: {
+      type: Object,
+      required: true,
+      default() {
+        return {
+          adult: false,
+          backdrop_path: "/fOy2Jurz9k6RnJnMUMRDAgBwru2.jpg",
+          genre_ids: [16, 10751, 35, 14],
+          id: 508947,
+          original_language: "en",
+          original_title: "Turning Red",
+          overview:
+            "Thirteen-year-old Mei is experiencing the awkwardness of being a teenager with a twist – when she gets too excited, she transforms into a giant red panda.",
+          popularity: 6038.256,
+          poster_path: "/qsdjk9oAKSQMWs0Vt5Pyfh6O4GZ.jpg",
+          release_date: "2022-03-01",
+          title: "Turning Red",
+          video: false,
+          vote_average: 7.5,
+          vote_count: 1242,
+        };
+      },
+    },
+  },
+  computed: {
+    transformedDate() {
+      return this.movie.release_date.match(/[0-9][0-9][0-9][0-9]/)[0];
+    },
   },
 };
 </script>

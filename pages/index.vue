@@ -7,7 +7,9 @@
       <section class="trending">
         <header>Trending</header>
 
-        <div v-if="$fetchState.pending">Fetching movies</div>
+        <div v-if="$fetchState.pending">
+          <Loader />
+        </div>
         <div v-else-if="$fetchState.error">An error occured</div>
         <div class="trending-container" v-else>
           <TrendingItem v-for="i in 10" :key="i" :movie="trendingMovies[i]" />
@@ -16,8 +18,16 @@
 
       <section class="recommended">
         <header>Recommended for you</header>
-        <div class="recommended-container">
-          <RecommendedItem v-for="i in 15" :key="i" />
+        <div v-if="$fetchState.pending">
+          <Loader />
+        </div>
+        <div v-else-if="$fetchState.error">An error occured</div>
+        <div class="recommended-container" v-else>
+          <RecommendedItem
+            v-for="i in recommendedMovies.length"
+            :key="i"
+            :movie="recommendedMovies[i]"
+          />
         </div>
       </section>
     </section>
@@ -32,6 +42,7 @@ export default {
   data() {
     return {
       trendingMovies: [],
+      recommendedMovies: [],
     };
   },
   methods: {
@@ -45,8 +56,19 @@ export default {
           console.log(err.message);
         });
     },
+    getRecommendedMovies() {
+      this.$axios
+        .get(`/movie/now_playing?api_key=${apiKey}`)
+        .then((res) => {
+          this.recommendedMovies = res.data.results;
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
   },
   async fetch() {
+    await this.getRecommendedMovies();
     await this.getTrendingMovies();
   },
 };
