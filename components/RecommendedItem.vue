@@ -11,15 +11,14 @@
         <span>{{ transformedDate }}</span
         ><span class="dot">&middot;</span
         ><span class="inline-flex"><i class="ri-film-fill"></i> Movie</span>
-        <span class="dot" v-if="movie.adult">&middot;</span>
-        <span v-if="movie.adult">PG</span>
+        <span class="dot" v-if="!movie.adult">&middot;</span>
+        <span v-if="!movie.adult">PG</span>
+        <span v-else-if="movie.adult">18+</span>
       </p>
     </div>
     <h1 class="movie-title">{{ movie.title }}</h1>
 
-    <button type="button" class="bookmark-btn">
-      <i class="ri-bookmark-line"></i>
-    </button>
+    <BookmarkBtn />
   </div>
 </template>
 

@@ -17,9 +17,7 @@
       <h1 class="movie-title">{{ movie.title }}</h1>
     </div>
 
-    <button type="button" class="bookmark-btn">
-      <i class="ri-bookmark-line"></i>
-    </button>
+    <BookmarkBtn />
   </div>
 </template>
 
