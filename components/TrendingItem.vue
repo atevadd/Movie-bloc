@@ -12,7 +12,8 @@
           ><i class="ri-film-fill"></i> {{ movie.media_type }}</span
         >
         <span class="dot" v-if="movie.adult">&middot;</span>
-        <span v-if="movie.adult">PG</span>
+        <span v-if="!movie.adult">PG</span>
+        <span v-else>18+</span>
       </p>
       <h1 class="movie-title">{{ movie.title }}</h1>
     </div>

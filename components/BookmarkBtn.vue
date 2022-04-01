@@ -1,5 +1,9 @@
 <template>
-  <button type="button" class="bookmark-btn" @click="makeBookmarkActive">
+  <button
+    type="button"
+    class="bookmark-btn"
+    @click="[makeBookmarkActive(), bookmarkMovie()]"
+  >
     <i class="ri-bookmark-fill" v-if="checked"></i>
     <i class="ri-bookmark-line" v-else></i>
   </button>
@@ -16,6 +20,9 @@ export default {
   methods: {
     makeBookmarkActive() {
       this.checked = !this.checked;
+    },
+    bookmarkMovie() {
+      this.$emit("bookmark-movie");
     },
   },
 };

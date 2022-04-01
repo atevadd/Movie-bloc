@@ -25,7 +25,7 @@ export default {
   border-radius: 50%;
   border-left-color: transparent;
   border-top-color: transparent;
-  animation: spin 0.3s ease;
+  animation: spin 0.3s ease infinite;
 }
 
 @keyframes spin {

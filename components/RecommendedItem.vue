@@ -13,12 +13,12 @@
         ><span class="inline-flex"><i class="ri-film-fill"></i> Movie</span>
         <span class="dot" v-if="!movie.adult">&middot;</span>
         <span v-if="!movie.adult">PG</span>
-        <span v-else-if="movie.adult">18+</span>
+        <span v-else>18+</span>
       </p>
     </div>
     <h1 class="movie-title">{{ movie.title }}</h1>
 
-    <BookmarkBtn />
+    <BookmarkBtn @bookmark-movie="bookmarks" />
   </div>
 </template>
 
@@ -48,6 +48,12 @@ export default {
           vote_count: 1242,
         };
       },
+    },
+  },
+  methods: {
+    bookmarks() {
+      console.log(this.movie.id);
+      this.$store.commit("toggleBookmark", this.movie.id);
     },
   },
   computed: {

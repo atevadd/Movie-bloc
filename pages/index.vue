@@ -43,6 +43,7 @@ export default {
     return {
       trendingMovies: [],
       recommendedMovies: [],
+      bookmarkedMovies: [],
     };
   },
   methods: {
@@ -66,10 +67,17 @@ export default {
           console.log(err.message);
         });
     },
+    getMovieId(id) {
+      console.log(id);
+    },
   },
   async fetch() {
     await this.getRecommendedMovies();
     await this.getTrendingMovies();
+  },
+  mounted() {
+    // console.log(this.$store.getters.printBookmark);
+    this.$store.commit("initBookmark");
   },
 };
 </script>
@@ -90,7 +98,7 @@ main {
 }
 .trending > header {
   font-size: 1.3rem;
-  font-weight: 300;
+  font-weight: 600;
   color: #f8fcfe;
   margin: 12px 0 10px;
 }
@@ -121,7 +129,7 @@ main {
 
 .recommended > header {
   font-size: 1.3rem;
-  font-weight: 300;
+  font-weight: 600;
   color: #f8fcfe;
   margin: 5px 0 15px;
 }
