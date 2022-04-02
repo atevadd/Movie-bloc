@@ -1,9 +1,17 @@
 export const state = () => ({
+  trendingMovies: [],
+  recommendedMovies: [],
   bookmarked: [],
 });
 
 // Store mutations
 export const mutations = {
+  loadTrending(state, movies) {
+    state.trendingMovies = movies;
+  },
+  loadRecommended(state, movies) {
+    state.recommendedMovies = movies;
+  },
   initBookmark(state) {
     let bookmarkMovies = localStorage.getItem("MB-bookmarks");
 
@@ -44,7 +52,12 @@ export const mutations = {
 
 export const getters = {
   printBookmark(state) {
-    console.log("something");
     return state.bookmarked;
+  },
+  getTrending(state) {
+    return state.trendingMovies;
+  },
+  getRecommended(state) {
+    return state.recommendedMovies;
   },
 };

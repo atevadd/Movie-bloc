@@ -51,7 +51,8 @@ export default {
       this.$axios
         .get(`/trending/movie/week?api_key=${apiKey}`)
         .then((res) => {
-          this.trendingMovies = res.data.results;
+          this.$store.commit("loadTrending", res.data.results);
+          this.trendingMovies = this.$store.getters.getTrending;
         })
         .catch((err) => {
           console.log(err.message);
@@ -61,7 +62,8 @@ export default {
       this.$axios
         .get(`/movie/now_playing?api_key=${apiKey}`)
         .then((res) => {
-          this.recommendedMovies = res.data.results;
+          this.$store.commit("loadRecommended", res.data.results);
+          this.recommendedMovies = this.$store.getters.getRecommended;
         })
         .catch((err) => {
           console.log(err.message);
@@ -76,19 +78,52 @@ export default {
     await this.getTrendingMovies();
   },
   mounted() {
-    // console.log(this.$store.getters.printBookmark);
     this.$store.commit("initBookmark");
   },
 };
 </script>
 
-<style scoped>
+<style>
 main {
   position: relative;
   display: grid;
   grid-template-columns: 8% 92%;
   align-items: flex-start;
 }
+
+/* Mobile breakpoint */
+@media screen and (max-width: 450px) {
+  main {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 100%));
+    align-items: baseline;
+  }
+  .page-content {
+    width: 100%;
+  }
+}
+
+/* Tablet breakpoint */
+@media screen and (min-width: 451px) and (max-width: 900px) {
+  main {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 100%));
+    align-items: baseline;
+  }
+  .page-content {
+    width: 100%;
+    /* margin-left: 20px; */
+  }
+}
+</style>
+
+<style scoped>
 .output {
   width: max-content;
 }
