@@ -12,6 +12,13 @@
 <script>
 export default {
   name: "BookmarkBtn",
+  props: {
+    isBookmarked: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
   data() {
     return {
       checked: false,
