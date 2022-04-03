@@ -52,7 +52,6 @@ export default {
   },
   methods: {
     bookmarks() {
-      console.log(this.movie);
       this.$store.commit("toggleBookmark", this.movie);
     },
   },

@@ -38,7 +38,7 @@ export default {
   },
   watch: {
     bookmarkedMovies() {
-      this.bookmarkedMovies = this.$store.getters.printBookmark;
+      this.bookmarkedMovies = this.$store.getters.getBookmark;
     },
   },
   head: {

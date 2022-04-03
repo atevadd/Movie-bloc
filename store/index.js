@@ -60,7 +60,7 @@ export const mutations = {
 };
 
 export const getters = {
-  printBookmark(state) {
+  getBookmark(state) {
     return state.bookmarked;
   },
   getTrending(state) {
