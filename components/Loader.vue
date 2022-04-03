@@ -19,8 +19,8 @@ export default {
 }
 
 .loader {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   border: 5px solid #fff;
   border-radius: 50%;
   border-left-color: transparent;

@@ -14,9 +14,9 @@
         <header class="bookmark-header">Bookmarked Movies</header>
 
         <div class="recommended-container bookmark">
-          <RecommendedItem
+          <MovieCard
             v-for="(i, index) in bookmarkedMovies.length"
-            :key="i"
+            :key="index"
             :movie="bookmarkedMovies[index]"
           />
         </div>
@@ -35,7 +35,6 @@ export default {
   },
   mounted() {
     this.bookmarkedMovies = localStorage.getItem("bookmarkMovies");
-    console.log(this.bookmarkedMovies);
   },
   watch: {
     bookmarkedMovies() {

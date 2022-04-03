@@ -23,7 +23,7 @@
         </div>
         <div v-else-if="$fetchState.error">An error occured</div>
         <div class="recommended-container" v-else>
-          <RecommendedItem
+          <MovieCard
             v-for="i in recommendedMovies.length"
             :key="i"
             :movie="recommendedMovies[i]"
