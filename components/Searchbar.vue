@@ -20,7 +20,7 @@ export default {
 <style scoped>
 .searchbar {
   position: relative;
-  width: 30%;
+  width: 40%;
 }
 .searchbar input {
   font-family: inherit;

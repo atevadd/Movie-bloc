@@ -57,15 +57,8 @@ export default {
   },
   methods: {
     bookmarks() {
-      console.log(this.movie.id);
-      this.$store.commit("toggleBookmark", this.movie.id);
-    },
-    toggleBookmark() {
-      if (this.$store.getters.getRecommended.includes(this.movie.id)) {
-        this.checked = true;
-      } else {
-        this.checked = false;
-      }
+      console.log(this.movie);
+      this.$store.commit("toggleBookmark", this.movie);
     },
   },
   computed: {

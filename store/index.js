@@ -2,6 +2,7 @@ export const state = () => ({
   trendingMovies: [],
   recommendedMovies: [],
   bookmarked: [],
+  bookmarkedId: [],
 });
 
 // Store mutations
@@ -13,39 +14,47 @@ export const mutations = {
     state.recommendedMovies = movies;
   },
   initBookmark(state) {
-    let bookmarkMovies = localStorage.getItem("MB-bookmarks");
+    let bookmarkMoviesId = localStorage.getItem("MB-bookmarks");
+    // let bookmarked = localStorage.getItem("bookmarkMovies");
 
-    if (bookmarkMovies == null) {
-      localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarked));
+    if (bookmarkMoviesId == null) {
+      localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarkedId));
+      localStorage.setItem("bookmarkMovies", JSON.stringify(state.bookmarked));
     } else {
-      this.bookmarkedMovies = JSON.parse(localStorage.getItem("MB-bookmarks"));
+      state.bookmarkedId = JSON.parse(localStorage.getItem("MB-bookmarks"));
+      state.bookmarked = JSON.parse(localStorage.getItem("bookmarkMovies"));
     }
   },
-  addToBookmarked(state, movieId) {
+  addToBookmarked(state, movieId, movie) {
     state.bookmarked.push(movieId);
 
     // persisting to local storage
-    localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarked));
+    localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarkedId));
   },
-  removeFromBookmarked(state, movieId) {
+  removeFromBookmarked(state, movieId, movie) {
     const pos = state.bookmarked.indexOf(movieId);
     state.bookmarked.splice(pos, 1);
 
     // Persisting to local storage
-    localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarked));
+    localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarkedId));
   },
-  toggleBookmark(state, movieId) {
-    if (!state.bookmarked.includes(movieId)) {
-      state.bookmarked.push(movieId);
+  toggleBookmark(state, payload) {
+    if (!state.bookmarkedId.includes(payload.id)) {
+      state.bookmarkedId.push(payload.id);
+      state.bookmarked.push(payload);
 
       // Persisting to local storage
-      localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarked));
+      localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarkedId));
+      localStorage.setItem("bookmarkMovies", JSON.stringify(state.bookmarked));
     } else {
-      const pos = state.bookmarked.indexOf(movieId);
-      state.bookmarked.splice(pos, 1);
+      const pos = state.bookmarkedId.indexOf(payload.id);
+      const moviePos = state.bookmarked.indexOf(payload);
+      state.bookmarkedId.splice(pos, 1);
+      state.bookmarked.splice(moviePos, 1);
 
       // persisting to local storage
-      localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarked));
+      localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarkedId));
+      localStorage.setItem("bookmarkMovies", JSON.stringify(state.bookmarked));
     }
   },
 };

@@ -77,7 +77,7 @@ export default {
     await this.getRecommendedMovies();
     await this.getTrendingMovies();
   },
-  mounted() {
+  created() {
     this.$store.commit("initBookmark");
   },
 };
@@ -89,6 +89,7 @@ main {
   display: grid;
   grid-template-columns: 8% 92%;
   align-items: flex-start;
+  /* min-height: 100vh; */
 }
 
 /* Mobile breakpoint */

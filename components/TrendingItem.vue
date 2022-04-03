@@ -18,7 +18,7 @@
       <h1 class="movie-title">{{ movie.title }}</h1>
     </div>
 
-    <BookmarkBtn />
+    <BookmarkBtn @bookmark-movie="bookmarks" />
   </div>
 </template>
 
@@ -48,6 +48,12 @@ export default {
           vote_count: 1242,
         };
       },
+    },
+  },
+  methods: {
+    bookmarks() {
+      console.log(this.movie);
+      this.$store.commit("toggleBookmark", this.movie);
     },
   },
   computed: {
