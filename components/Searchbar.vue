@@ -45,13 +45,13 @@ export default {
 
 @media screen and (max-width: 450px) {
   .searchbar {
-    margin-left: 20px;
+    margin-left: 10px;
     width: 90%;
   }
 }
 @media screen and (min-width: 451px) and (max-width: 900px) {
   .searchbar {
-    margin-left: 20px;
+    margin-left: 10px;
     width: 90%;
   }
 }

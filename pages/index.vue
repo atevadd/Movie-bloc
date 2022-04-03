@@ -185,18 +185,19 @@ main {
     /* margin-left: 20px; */
   }
   .trending > header {
-    padding-left: 20px;
+    padding-left: 10px;
   }
   .trending-container {
-    padding-left: 20px;
+    padding-left: 10px;
     width: 100%;
   }
   .recommended {
-    width: 90%;
+    width: 100%;
     margin: 20px auto;
   }
   .recommended-container {
-    width: 100%;
+    width: 95%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px 15px;
@@ -207,6 +208,7 @@ main {
     font-weight: 300;
     color: #f8fcfe;
     margin: 10px 0 25px;
+    margin-left: 10px;
   }
 }
 

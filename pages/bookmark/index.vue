@@ -11,13 +11,13 @@
 
       <!-- Bookmarked movies -->
       <section class="bookmark-container" v-else>
-        <header class="bookmark-header">Bookmarked</header>
+        <header class="bookmark-header">Bookmarked Movies</header>
 
-        <div class="recommended-container">
+        <div class="recommended-container bookmark">
           <RecommendedItem
-            v-for="i in bookmarkedMovies.length"
+            v-for="(i, index) in bookmarkedMovies.length"
             :key="i"
-            :movie="bookmarkedMovies[i]"
+            :movie="bookmarkedMovies[index]"
           />
         </div>
       </section>
@@ -73,7 +73,6 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px 30px;
-  padding-right: 25px;
 }
 .bookmark-header {
   font-size: 1.3rem;
@@ -81,7 +80,9 @@ export default {
   color: #f8fcfe;
   margin: 30px 0 25px;
 }
-
+/* .bookmark {
+  border: 1px solid red;
+} */
 @media screen and (max-width: 450px) {
   .empty-state {
     width: 90%;
@@ -95,11 +96,14 @@ export default {
     font-size: 1.4rem;
   }
   .recommended-container {
-    width: 100%;
+    width: 95%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px 30px;
-    padding-right: 25px;
+    gap: 30px 20px;
+  }
+  .bookmark-header {
+    padding-left: 10px;
   }
 }
 @media screen and (min-width: 451px) and (max-width: 900px) {
@@ -115,11 +119,10 @@ export default {
     font-size: 1.4rem;
   }
   .recommended-container {
-    width: 100%;
+    width: 95%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 30px 30px;
-    padding-right: 25px;
   }
 }
 </style>
