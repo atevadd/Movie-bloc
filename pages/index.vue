@@ -205,7 +205,7 @@ main {
   }
   .recommended > header {
     font-size: 1.3rem;
-    font-weight: 300;
+    font-weight: 600;
     color: #f8fcfe;
     margin: 10px 0 25px;
     margin-left: 10px;
@@ -246,9 +246,9 @@ main {
   }
   .recommended > header {
     font-size: 1.3rem;
-    font-weight: 300;
+    font-weight: 600;
     color: #f8fcfe;
-    margin: 10px 0 25px;
+    margin: 15px 0 25px;
   }
 }
 </style>
