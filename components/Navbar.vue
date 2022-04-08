@@ -13,7 +13,7 @@
           <nuxt-link to="#"><i class="ri-film-fill"></i></nuxt-link>
         </li>
         <li>
-          <nuxt-link to="#"><i class="ri-tv-fill"></i></nuxt-link>
+          <nuxt-link to="/tv-series"><i class="ri-tv-fill"></i></nuxt-link>
         </li>
         <li>
           <nuxt-link to="/bookmark"><i class="ri-bookmark-fill"></i></nuxt-link>

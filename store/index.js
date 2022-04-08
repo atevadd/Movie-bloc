@@ -38,7 +38,7 @@ export const mutations = {
     // Persisting to local storage
     localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarkedId));
   },
-  toggleBookmark(state, payload) {
+  addOrRemoveBoomarkMovie(state, payload) {
     if (!state.bookmarkedId.includes(payload.id)) {
       state.bookmarkedId.push(payload.id);
       state.bookmarked.push(payload);

@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     bookmarks() {
-      this.$store.commit("toggleBookmark", this.movie);
+      this.$store.commit("addOrRemoveBoomarkMovie", this.movie);
     },
   },
   computed: {
