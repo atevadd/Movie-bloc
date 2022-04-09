@@ -53,5 +53,7 @@ export default {
   loading: {
     color: "white",
     height: "5px",
+    throttle: 500,
+    continous: true,
   },
 };

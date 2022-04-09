@@ -8,8 +8,9 @@
     </div>
     <div class="movie-details">
       <p class="movie-info">
-        <span>{{ transformedDate }}</span
-        ><span class="dot">&middot;</span
+        <span v-if="movie.release_date">{{ transformedDate }}</span>
+        <span v-else>{{ new Date().getFullYear() }}</span>
+        <span class="dot">&middot;</span
         ><span class="inline-flex"><i class="ri-film-fill"></i> Movie</span>
         <span class="dot" v-if="!movie.adult">&middot;</span>
         <span v-if="!movie.adult">PG</span>
@@ -126,7 +127,7 @@ span {
 
 @media screen and (max-width: 450px) {
   .movie-image {
-    height: 160px;
+    height: 120px;
   }
 }
 </style>

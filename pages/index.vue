@@ -69,16 +69,31 @@ export default {
           console.log(err.message);
         });
     },
-    getMovieId(id) {
-      console.log(id);
+    getTvSeries() {
+      this.$axios
+        .get(`/tv/popular?api_key=${apiKey}`)
+        .then((res) => {
+          this.$store.commit("loadTVSeries", res.data.results);
+          console.log(res.data.results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
   async fetch() {
     await this.getRecommendedMovies();
     await this.getTrendingMovies();
+    await this.getTvSeries();
   },
   created() {
     this.$store.commit("initBookmark");
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+      setTimeout(() => this.$nuxt.$loading.finish(), 1000);
+    });
   },
 };
 </script>

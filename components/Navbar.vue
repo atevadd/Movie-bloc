@@ -23,7 +23,7 @@
       <div class="user-icon">
         <img
           src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="User icon"
+          alt="User profile icon"
         />
       </div>
     </nav>

@@ -33,8 +33,9 @@ export default {
       bookmarkedMovies: [],
     };
   },
-  mounted() {
-    this.bookmarkedMovies = localStorage.getItem("bookmarkMovies");
+  created() {
+    this.bookmarkedMovies = JSON.parse(localStorage.getItem("bookmarkMovies"));
+    console.log(this.bookmarkedMovies);
   },
   watch: {
     bookmarkedMovies() {
@@ -42,9 +43,9 @@ export default {
     },
   },
   head: {
-    title: "Movie-bloc - Bookmarked movies - The best entertainment app",
-  },
-};
+    title: "Movie-bloc - Bookmarked movies"
+  }
+}
 </script>
 
 <style scoped>
@@ -93,6 +94,7 @@ export default {
   }
   .empty-state h1 {
     font-size: 1.4rem;
+    text-align: center;
   }
   .recommended-container {
     width: 95%;
@@ -116,6 +118,7 @@ export default {
   }
   .empty-state h1 {
     font-size: 1.4rem;
+    text-align: center;
   }
   .recommended-container {
     width: 95%;

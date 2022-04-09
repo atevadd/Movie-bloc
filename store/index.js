@@ -3,6 +3,8 @@ export const state = () => ({
   recommendedMovies: [],
   bookmarked: [],
   bookmarkedId: [],
+  tvSeries: [],
+  movies: [],
 });
 
 // Store mutations
@@ -12,6 +14,12 @@ export const mutations = {
   },
   loadRecommended(state, movies) {
     state.recommendedMovies = movies;
+  },
+  loadTVSeries(state, series) {
+    state.tvSeries = series;
+  },
+  loadMovies(state, movies) {
+    state.movies = movies;
   },
   initBookmark(state) {
     let bookmarkMoviesId = localStorage.getItem("MB-bookmarks");
@@ -24,19 +32,6 @@ export const mutations = {
       state.bookmarkedId = JSON.parse(localStorage.getItem("MB-bookmarks"));
       state.bookmarked = JSON.parse(localStorage.getItem("bookmarkMovies"));
     }
-  },
-  addToBookmarked(state, movieId, movie) {
-    state.bookmarked.push(movieId);
-
-    // persisting to local storage
-    localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarkedId));
-  },
-  removeFromBookmarked(state, movieId, movie) {
-    const pos = state.bookmarked.indexOf(movieId);
-    state.bookmarked.splice(pos, 1);
-
-    // Persisting to local storage
-    localStorage.setItem("MB-bookmarks", JSON.stringify(state.bookmarkedId));
   },
   addOrRemoveBoomarkMovie(state, payload) {
     if (!state.bookmarkedId.includes(payload.id)) {
@@ -62,6 +57,9 @@ export const mutations = {
 export const getters = {
   getBookmark(state) {
     return state.bookmarked;
+  },
+  getTvSeries(state) {
+    return state.tvSeries;
   },
   getTrending(state) {
     return state.trendingMovies;
