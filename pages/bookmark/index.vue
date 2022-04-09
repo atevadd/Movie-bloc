@@ -35,7 +35,6 @@ export default {
   },
   created() {
     this.bookmarkedMovies = JSON.parse(localStorage.getItem("bookmarkMovies"));
-    console.log(this.bookmarkedMovies);
   },
   watch: {
     bookmarkedMovies() {
@@ -43,9 +42,9 @@ export default {
     },
   },
   head: {
-    title: "Movie-bloc - Bookmarked movies"
-  }
-}
+    title: "Movie-bloc - Bookmarked movies",
+  },
+};
 </script>
 
 <style scoped>

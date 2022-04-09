@@ -74,6 +74,7 @@ export default {
         .get(`/tv/popular?api_key=${apiKey}`)
         .then((res) => {
           this.$store.commit("loadTVSeries", res.data.results);
+          console.log(res.data.results);
         })
         .catch((err) => {
           console.log(err);
