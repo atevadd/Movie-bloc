@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import apiKey from "~/assets/js/key";
+
 export default {
   name: "Tvseries",
   data() {
@@ -26,8 +28,23 @@ export default {
       tvSeries: [],
     };
   },
+  methods: {
+    getTvSeries() {
+      this.$axios
+        .get(`/tv/popular?api_key=${apiKey}`)
+        .then((res) => {
+          this.$store.commit("loadTVSeries", res.data.results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
   head: {
     title: "Movie bloc - Tv Series",
+  },
+  mounted() {
+    this.getTvSeries();
   },
   created() {
     this.tvSeries = this.$store.getters.getTvSeries;

@@ -9,7 +9,7 @@
     <div class="movie-details">
       <p class="movie-info">
         <span v-if="movie.release_date">{{ transformedDate }}</span>
-        <span v-else>{{ new Date().getFullYear() }}</span>
+        <span v-else>{{ movie.first_air_date }}</span>
         <span class="dot">&middot;</span
         ><span class="inline-flex"><i class="ri-film-fill"></i> Movie</span>
         <span class="dot" v-if="!movie.adult">&middot;</span>
@@ -17,7 +17,8 @@
         <span v-else>18+</span>
       </p>
     </div>
-    <h1 class="movie-title">{{ movie.title }}</h1>
+    <h1 class="movie-title" v-if="movie.title">{{ movie.title }}</h1>
+    <h1 class="movie-title" v-else>{{ movie.name }}</h1>
 
     <BookmarkBtn @bookmark-movie="bookmarks" />
   </div>
