@@ -74,28 +74,27 @@ export default {
         .get(`/tv/popular?api_key=${apiKey}`)
         .then((res) => {
           this.$store.commit("loadTVSeries", res.data.results);
-          console.log(res.data.results);
         })
         .catch((err) => {
-          console.log(err);
+          console.log(err.message);
         });
     },
-    getMovies(){
-      this.$axios.get(`/movie/popular?api_key=${apiKey}`)
-      .then(res =>{
-        this.$store.commit('loadMovies', res.data.results)
-        console.log(res.data.results)
-      })
-      .catch(err =>{
-        console.log(err.message)
-      })
-    }
+    getMovies() {
+      this.$axios
+        .get(`/movie/popular?api_key=${apiKey}`)
+        .then((res) => {
+          this.$store.commit("loadMovies", res.data.results);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
   },
   async fetch() {
     await this.getRecommendedMovies();
     await this.getTrendingMovies();
     await this.getTvSeries();
-    await this.getMovies()
+    await this.getMovies();
   },
   created() {
     this.$store.commit("initBookmark");

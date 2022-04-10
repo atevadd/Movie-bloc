@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "movie-bloc - The best entertainment app",
+    title: "Movie-bloc - The best entertainment app",
     htmlAttrs: {
       lang: "en",
     },
@@ -15,7 +15,7 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/png", href: "/movie-bloc-ico.png" },
       {
         rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css",

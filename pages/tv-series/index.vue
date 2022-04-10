@@ -45,8 +45,6 @@ export default {
   },
   mounted() {
     this.getTvSeries();
-  },
-  created() {
     this.tvSeries = this.$store.getters.getTvSeries;
   },
 };

@@ -10,7 +10,7 @@
           <nuxt-link to="/"><i class="ri-layout-grid-fill"></i></nuxt-link>
         </li>
         <li>
-          <nuxt-link to="#"><i class="ri-film-fill"></i></nuxt-link>
+          <nuxt-link to="/movies"><i class="ri-film-fill"></i></nuxt-link>
         </li>
         <li>
           <nuxt-link to="/tv-series"><i class="ri-tv-fill"></i></nuxt-link>

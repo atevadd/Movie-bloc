@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import apiKey from "~/assets/js/key";
 export default {
   name: "Movies",
   data() {
@@ -27,14 +28,25 @@ export default {
     };
   },
   methods: {
-    getMovies() {},
+    getMovies() {
+      this.$axios
+        .get(`/movie/popular?api_key=${apiKey}`)
+        .then((res) => {
+          this.$store.commit("loadMovies", res.data.results);
+          console.log(res.data.results);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
   },
   mounted() {
     this.getMovies();
-  },
-  created() {
     this.movies = this.$store.getters.getMovies;
   },
+  // created() {
+  //   this.movies = this.$store.getters.getMovies;
+  // },
   head: {
     title: "Movie bloc - All movies",
   },
