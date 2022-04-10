@@ -33,7 +33,6 @@ export default {
         .get(`/movie/popular?api_key=${apiKey}`)
         .then((res) => {
           this.$store.commit("loadMovies", res.data.results);
-          console.log(res.data.results);
         })
         .catch((err) => {
           console.log(err.message);
