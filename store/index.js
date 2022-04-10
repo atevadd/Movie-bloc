@@ -67,4 +67,7 @@ export const getters = {
   getRecommended(state) {
     return state.recommendedMovies;
   },
+  getMovies(state){
+    return state.movies;
+  }
 };
