@@ -51,7 +51,7 @@ export default {
   build: {},
 
   loading: {
-    color: "grey",
+    color: "#c6c6c6",
     height: "5px",
     throttle: 400,
     continous: true,

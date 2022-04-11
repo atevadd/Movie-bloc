@@ -58,6 +58,9 @@ export const getters = {
   getBookmark(state) {
     return state.bookmarked;
   },
+  getBookmarkId(state) {
+    return state.bookmarkedId;
+  },
   getTvSeries(state) {
     return state.tvSeries;
   },
@@ -67,7 +70,7 @@ export const getters = {
   getRecommended(state) {
     return state.recommendedMovies;
   },
-  getMovies(state){
+  getMovies(state) {
     return state.movies;
-  }
+  },
 };

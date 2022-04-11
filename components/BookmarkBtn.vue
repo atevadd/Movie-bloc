@@ -32,6 +32,9 @@ export default {
       this.$emit("bookmark-movie");
     },
   },
+  mounted() {
+    this.checked = this.isBookmarked;
+  },
 };
 </script>
 

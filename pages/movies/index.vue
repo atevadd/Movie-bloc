@@ -43,9 +43,6 @@ export default {
     this.getMovies();
     this.movies = this.$store.getters.getMovies;
   },
-  // created() {
-  //   this.movies = this.$store.getters.getMovies;
-  // },
   head: {
     title: "Movie bloc - All movies",
   },

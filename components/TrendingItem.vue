@@ -18,7 +18,12 @@
       <h1 class="movie-title">{{ movie.title }}</h1>
     </div>
 
-    <BookmarkBtn @bookmark-movie="bookmarks" />
+    <BookmarkBtn
+      @bookmark-movie="bookmarks"
+      :isBookmarked="
+        this.$store.getters.getBookmarkId.includes(this.movie.id) ? true : false
+      "
+    />
   </div>
 </template>
 

@@ -23,7 +23,12 @@
     <h1 class="movie-title" v-if="movie.title">{{ movie.title }}</h1>
     <h1 class="movie-title" v-else-if="movie.name">{{ movie.name }}</h1>
 
-    <BookmarkBtn @bookmark-movie="bookmarks" />
+    <BookmarkBtn
+      @bookmark-movie="bookmarks"
+      :isBookmarked="
+        this.$store.getters.getBookmarkId.includes(this.movie.id) ? true : false
+      "
+    />
   </div>
 </template>
 
@@ -63,6 +68,13 @@ export default {
   methods: {
     bookmarks() {
       this.$store.commit("addOrRemoveBoomarkMovie", this.movie);
+    },
+    checkIfBookmarked() {
+      if (this.$store.getters.getBookmarkId.includes(this.movie.id)) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   computed: {
