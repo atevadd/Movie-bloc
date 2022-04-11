@@ -6,6 +6,8 @@
       placeholder="Search for movies or TV series"
       autocomplete="off"
       inputmode="text"
+      v-model="searchText"
+      @keyup="getSearchText"
     />
     <i class="ri-search-line" aria-hidden="true"></i>
   </div>
@@ -14,6 +16,16 @@
 <script>
 export default {
   name: "Searchbar",
+  data() {
+    return {
+      searchText: "",
+    };
+  },
+  methods: {
+    getSearchText() {
+      this.$emit("search-text", this.searchText);
+    },
+  },
 };
 </script>
 

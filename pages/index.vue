@@ -2,34 +2,57 @@
   <main>
     <Navbar />
     <section class="page-content">
-      <Searchbar />
+      <Searchbar @search-text="searchMovie" />
 
-      <section class="trending">
-        <header>Trending</header>
+      <!-- Search result area -->
+      <div v-if="searchText">
+        <section class="recommended">
+          <header>
+            Found {{ searchedMoviesResult.length }} results for '{{
+              searchText
+            }}'
+          </header>
+          <div class="recommended-container">
+            <MovieCard
+              v-for="(i, index) in searchedMoviesResult.length"
+              :key="index"
+              :movie="searchedMoviesResult[index]"
+            />
+          </div>
+        </section>
+      </div>
 
-        <div v-if="$fetchState.pending">
-          <Loader />
-        </div>
-        <div v-else-if="$fetchState.error">An error occured</div>
-        <div class="trending-container" v-else>
-          <TrendingItem v-for="i in 10" :key="i" :movie="trendingMovies[i]" />
-        </div>
-      </section>
+      <!-- Main content area -->
+      <div v-else>
+        <!-- Trending section -->
+        <section class="trending">
+          <header>Trending</header>
 
-      <section class="recommended">
-        <header>Recommended for you</header>
-        <div v-if="$fetchState.pending">
-          <Loader />
-        </div>
-        <div v-else-if="$fetchState.error">An error occured</div>
-        <div class="recommended-container" v-else>
-          <MovieCard
-            v-for="i in recommendedMovies.length"
-            :key="i"
-            :movie="recommendedMovies[i]"
-          />
-        </div>
-      </section>
+          <div v-if="$fetchState.pending">
+            <Loader />
+          </div>
+          <div v-else-if="$fetchState.error">An error occured</div>
+          <div class="trending-container" v-else>
+            <TrendingItem v-for="i in 10" :key="i" :movie="trendingMovies[i]" />
+          </div>
+        </section>
+
+        <!-- Recommended section  -->
+        <section class="recommended">
+          <header>Recommended for you</header>
+          <div v-if="$fetchState.pending">
+            <Loader />
+          </div>
+          <div v-else-if="$fetchState.error">An error occured</div>
+          <div class="recommended-container" v-else>
+            <MovieCard
+              v-for="(i, index) in recommendedMovies.length"
+              :key="index"
+              :movie="recommendedMovies[index]"
+            />
+          </div>
+        </section>
+      </div>
     </section>
   </main>
 </template>
@@ -44,9 +67,24 @@ export default {
       trendingMovies: [],
       recommendedMovies: [],
       bookmarkedMovies: [],
+      searchText: "",
+      searchedMoviesResult: [],
     };
   },
   methods: {
+    searchMovie(text) {
+      this.searchedMoviesResult = [];
+      this.searchText = text;
+
+      const pattern = new RegExp(this.searchText, "ig");
+
+      this.$store.getters.getRecommended.forEach((movie) => {
+        if (movie.title.match(pattern)) {
+          this.searchedMoviesResult.push(movie);
+        }
+      });
+      console.log(this.searchedMoviesResult);
+    },
     getTrendingMovies() {
       this.$axios
         .get(`/trending/movie/week?api_key=${apiKey}`)
