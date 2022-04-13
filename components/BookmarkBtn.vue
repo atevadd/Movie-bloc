@@ -27,6 +27,9 @@ export default {
   methods: {
     makeBookmarkActive() {
       this.checked = !this.checked;
+      if (navigator.vibrate) {
+        navigator.vibrate(100);
+      }
     },
     bookmarkMovie() {
       this.$emit("bookmark-movie");
