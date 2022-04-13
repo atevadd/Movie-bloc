@@ -4,19 +4,25 @@
       :src="'http://image.tmdb.org/t/p/original' + movie.backdrop_path"
       :alt="movie.title + 'poster image'"
     />
-    <div class="trending-item-content">
-      <p>
-        <span>{{ transformedDate }}</span
-        ><span class="dot">&middot;</span
-        ><span class="inline-flex"
-          ><i class="ri-film-fill"></i> {{ movie.media_type }}</span
-        >
-        <span class="dot" v-if="movie.adult">&middot;</span>
-        <span v-if="!movie.adult">PG</span>
-        <span v-else>18+</span>
-      </p>
-      <h1 class="movie-title">{{ movie.title }}</h1>
-    </div>
+    <!-- <img
+      :src="'http://image.tmdb.org/t/p/original' + movie.backdrop_path"
+      :alt="movie.title + 'image poster'"
+    /> -->
+    <nuxt-link :to="'/movie/' + movie.id">
+      <div class="trending-item-content">
+        <p>
+          <span>{{ transformedDate }}</span
+          ><span class="dot">&middot;</span
+          ><span class="inline-flex"
+            ><i class="ri-film-fill"></i> {{ movie.media_type }}</span
+          >
+          <span class="dot" v-if="movie.adult">&middot;</span>
+          <span v-if="!movie.adult">PG</span>
+          <span v-else>18+</span>
+        </p>
+        <h1 class="movie-title">{{ movie.title }}</h1>
+      </div>
+    </nuxt-link>
 
     <BookmarkBtn
       @bookmark-movie="bookmarks"
