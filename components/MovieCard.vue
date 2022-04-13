@@ -1,38 +1,36 @@
 <template>
   <div class="recommended-item">
-    <nuxt-link :to="'/movie/' + movie.id">
-      <!-- Movie or tv series image poster -->
-      <div class="movie-image">
+    <!-- Movie or tv series image poster -->
+    <div class="movie-image">
+      <nuxt-link :to="'/movie/' + movie.id">
         <img
           :src="'http://image.tmdb.org/t/p/original' + movie.backdrop_path"
           :alt="movie.title + 'image poster'"
         />
-      </div>
-      <div class="movie-details">
-        <p class="movie-info">
-          <span v-if="movie.release_date">{{ transformedDate }}</span>
-          <span v-else-if="movie.first_air_date">{{ seriesDate }}</span>
-          <span class="dot">&middot;</span
-          ><span class="inline-flex"><i class="ri-film-fill"></i> Movie</span>
-          <span class="dot" v-if="!movie.adult">&middot;</span>
-          <span v-if="!movie.adult">PG</span>
-          <span v-else>18+</span>
-        </p>
-      </div>
+      </nuxt-link>
+    </div>
+    <div class="movie-details">
+      <p class="movie-info">
+        <span v-if="movie.release_date">{{ transformedDate }}</span>
+        <span v-else-if="movie.first_air_date">{{ seriesDate }}</span>
+        <span class="dot">&middot;</span
+        ><span class="inline-flex"><i class="ri-film-fill"></i> Movie</span>
+        <span class="dot" v-if="!movie.adult">&middot;</span>
+        <span v-if="!movie.adult">PG</span>
+        <span v-else>18+</span>
+      </p>
+    </div>
 
-      <!-- Movie or tv series title -->
-      <h1 class="movie-title" v-if="movie.title">{{ movie.title }}</h1>
-      <h1 class="movie-title" v-else-if="movie.name">{{ movie.name }}</h1>
+    <!-- Movie or tv series title -->
+    <h1 class="movie-title" v-if="movie.title">{{ movie.title }}</h1>
+    <h1 class="movie-title" v-else-if="movie.name">{{ movie.name }}</h1>
 
-      <BookmarkBtn
-        @bookmark-movie="bookmarks"
-        :isBookmarked="
-          this.$store.getters.getBookmarkId.includes(this.movie.id)
-            ? true
-            : false
-        "
-      />
-    </nuxt-link>
+    <BookmarkBtn
+      @bookmark-movie="bookmarks"
+      :isBookmarked="
+        this.$store.getters.getBookmarkId.includes(this.movie.id) ? true : false
+      "
+    />
   </div>
 </template>
 
