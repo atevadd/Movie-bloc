@@ -2,12 +2,12 @@
   <div class="recommended-item">
     <!-- Movie or tv series image poster -->
     <div class="movie-image">
-      <nuxt-link :to="'/movie/' + movie.id">
-        <img
-          :src="'http://image.tmdb.org/t/p/original' + movie.backdrop_path"
-          :alt="movie.title + 'image poster'"
-        />
-      </nuxt-link>
+      <!-- <nuxt-link :to="'/movie/' + movie.id"> -->
+      <img
+        :src="'http://image.tmdb.org/t/p/original' + movie.backdrop_path"
+        :alt="movie.title + 'image poster'"
+      />
+      <!-- </nuxt-link> -->
     </div>
     <div class="movie-details">
       <p class="movie-info">
